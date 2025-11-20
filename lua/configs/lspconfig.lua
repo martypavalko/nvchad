@@ -1,6 +1,6 @@
 require("nvchad.configs.lspconfig").defaults()
 
-local servers = { "html", "cssls", "yamlls", "ansiblels" }
+local servers = { "html", "cssls", "yamlls", "ansiblels", "helm_ls" }
 
 vim.lsp.config.ansiblels = {
   filetypes = { "yaml.ansible", "ansible" },
@@ -24,6 +24,35 @@ vim.lsp.config.ansiblels = {
           path = "ansible-lint"
         }
       }
+    }
+  }
+}
+
+vim.lsp.config.helm_ls = {
+  filetypes = { "helm" },
+  cmd = { "helm_ls", "serve" },
+  root_markers = { "Chart.yaml" },
+  settings = {
+    ['helm-ls'] = {
+      yamlls = {
+        enabled = true,
+        diagnosticsLimit = 50,
+        showDiagnosticsDirectly = false,
+        path = "yaml-language-server",
+      }
+    }
+  }
+}
+
+vim.lsp.config.yamlls = {
+  settings = {
+    yaml = {
+      schemas = {
+        kubernetes = "templates/*.yaml",
+      },
+      validate = true,
+      hover = true,
+      completion = true,
     }
   }
 }

@@ -19,4 +19,8 @@ map("n", "L", vim.cmd.bnext)
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
 
+map("n", "<leader>hl", "<cmd>!helm lint %:p:h:h<cr>", { desc = "Helm lint chart" })
+map("n", "<leader>ht", "<cmd>!helm template %:p:h:h<cr>", { desc = "Helm template chart" })
+map("n", "<leader>hd", "<cmd>!helm template %:p:h:h --debug<cr>", { desc = "Helm debug template" })
+
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")

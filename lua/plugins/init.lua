@@ -28,7 +28,12 @@ return {
     init = function()
       vim.g.mkdp_filetypes = { "markdown" }
     end,
-  }
+  },
+  {
+    "towolf/vim-helm",
+    ft = "helm",
+  },
+
 
   -- test new blink
   -- { import = "nvchad.blink.lazyspec" },
