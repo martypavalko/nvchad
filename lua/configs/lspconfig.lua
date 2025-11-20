@@ -1,6 +1,6 @@
 require("nvchad.configs.lspconfig").defaults()
 
-local servers = { "html", "cssls", "yamlls", "ansiblels", "helm_ls" }
+local servers = { "html", "cssls", "yamlls", "ansiblels", "helm_ls", "terraform_ls" }
 
 vim.lsp.config.ansiblels = {
   filetypes = { "yaml.ansible", "ansible" },
@@ -53,6 +53,23 @@ vim.lsp.config.yamlls = {
       validate = true,
       hover = true,
       completion = true,
+    }
+  }
+}
+
+vim.lsp.config.terraform_ls = {
+  filetypes = { "terraform", "tf" },
+  cmd = { "terraform-ls", "serve" },
+  root_markers = { ".terraform", ".git" },
+  settings = {
+    ["terraform-ls"] = {
+      experimentalFeatures = {
+        validateOnSave = true,
+        prefillRequiredFields = true,
+      },
+      validation = {
+        enableEnhancedValidation = true,
+      },
     }
   }
 }

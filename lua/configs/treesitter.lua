@@ -1,6 +1,6 @@
 return {
   {
     "nvim-treesitter/nvim-treesitter",
-    opts = { ensure_installed = {"html", "css", "bash"} },
+    opts = { ensure_installed = { "html", "css", "bash", "ansible", "terraform", "yaml", "helm" } },
   },
 }
